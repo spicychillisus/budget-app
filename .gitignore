@@ -38,3 +38,8 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# database
+# do not commit them to github please
+# actually this one is based on feeling lah idk alr
+/databases
