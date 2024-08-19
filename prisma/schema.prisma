@@ -9,19 +9,20 @@ datasource db {
 
 model users {
   id           Int           @id @default(autoincrement())
-  name         String
+  firstName    String        @map("first_name")
+  lastName     String        @map("last_name")
   username     String        @unique
   email        String
   age          Int
   birthday     String
   password     String
-  userId       String        @unique @map("user_id")
+  userId       Int        @unique @map("user_id")
   transactions transactions[]
 }
 
 model user_money {
   id        Int    @id @default(autoincrement())
-  userId    String @unique @map("user_id")
+  userId    Int @unique @map("user_id")
   username  String
   budget    Float
   income    Float
@@ -40,6 +41,6 @@ model transactions {
   transactionDetails String @map("transaction_details")
   trasactionAmount   Float  @map("trasaction_amount")
   transactionDate    String @map("transaction_date")
-  userId             String @unique @map("user_id")
+  userId             Int    @unique @map("user_id")
   users              users  @relation(fields: [userId], references: [userId])
 }

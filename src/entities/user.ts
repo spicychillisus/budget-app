@@ -4,7 +4,8 @@ const prisma = new PrismaClient();
 
 export default class User {
 
-    private id: number;
+    // user details
+    private userId: number;
     private firstName: string;
     private lastName: string;
     private username: string;
@@ -12,11 +13,19 @@ export default class User {
     private password: string; // never release this
     private createdAt: string;
     private updatedAt: string;
+    private lastLogin: string;
     private accountActive: boolean;
-    private badges: any[];
+    private achievements: any[];
+
+    // money matters
+    private balance: number;
+    private income: number;
+    private budgetAmount: number;
 
     constructor() {
-        this.id = 0;
+        
+        // user details
+        this.userId = 0;
         this.firstName = '';
         this.lastName = '';
         this.username = '';
@@ -24,14 +33,20 @@ export default class User {
         this.password = '';
         this.createdAt = '';
         this.updatedAt = '';
+        this.lastLogin = '';
         this.accountActive = true;
-        this.badges = [];
+        this.achievements = [];
+
+        // money matters
+        this.balance = 0;
+        this.income = 0;
+        this.budgetAmount = 0;
     }
 
     public generateId(): number {
         const id = Math.floor(Math.random() * 1000000);
         console.log(`generated id for user ${this.username}: ${id}`)
-        return this.id = id;
+        return this.userId = id;
     }
 
     public generateRandomUsername(): string {
@@ -42,14 +57,15 @@ export default class User {
         
         function generateUsername(firstName: string, lastName: string): string {
             
-            const extraNames = [];
+            const additionalNames = [""];
 
-            return firstName;
+            return firstName + lastName;
         }
 
         async function getAllUsernames() {
             const allUsernames = await prisma.users.findMany({
                 select: {
+                    id: true,
                     username: true
                 }
             })
@@ -58,16 +74,25 @@ export default class User {
         }
 
         const newUsername = generateUsername(this.firstName, this.lastName);
+        const existingUsernames = getAllUsernames();
         
         return this.username = newUsername;
     }
 
-    public getId(): number {
-        return this.id;
+    public getUserId(): number {
+        return this.userId;
     }
 
-    public getAccountStatus(): boolean {
-        return this.accountActive;
+    public setUsername(username: string): void {
+        this.username = username;
+    }
+
+    public getUsername(): string {
+        return this.username;
+    }
+
+    public getAchievements(): any {
+        return this.achievements;
     }
 
 

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import User from "./entities/user";
+import User from "../entities/user";
  const user = new User();
  
 
