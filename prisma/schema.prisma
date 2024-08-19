@@ -17,6 +17,8 @@ model users {
   birthday     String
   password     String
   userId       Int        @unique @map("user_id")
+  accountActivationStatus Boolean @map("account_activation_status")
+  accountStatus    String  @map("account_status")
   transactions transactions[]
 }
 

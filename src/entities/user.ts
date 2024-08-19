@@ -21,9 +21,10 @@ export default class User {
     private balance: number;
     private income: number;
     private budgetAmount: number;
+    private amountSpent: number;
 
     constructor() {
-        
+
         // user details
         this.userId = 0;
         this.firstName = '';
@@ -41,6 +42,7 @@ export default class User {
         this.balance = 0;
         this.income = 0;
         this.budgetAmount = 0;
+        this.amountSpent = 0;
     }
 
     public generateId(): number {
@@ -75,6 +77,7 @@ export default class User {
 
         const newUsername = generateUsername(this.firstName, this.lastName);
         const existingUsernames = getAllUsernames();
+        console.log(existingUsernames);
         
         return this.username = newUsername;
     }
