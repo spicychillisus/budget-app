@@ -51,7 +51,7 @@ export default class User {
         return this.userId = id;
     }
 
-    public generateRandomUsername(): string {
+    /* public generateRandomUsernames(): any[] {
 
         // genereate username
         // if db already has this username, generate another one
@@ -59,9 +59,13 @@ export default class User {
         
         function generateUsername(firstName: string, lastName: string): string {
             
-            const additionalNames = [""];
+            const capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+            const numbers = 1234567890;
 
-            return firstName + lastName;
+            const newUsername: string = "";
+
+            return newUsername;
         }
 
         async function getAllUsernames() {
@@ -78,15 +82,13 @@ export default class User {
         const newUsername = generateUsername(this.firstName, this.lastName);
         const existingUsernames = getAllUsernames();
         console.log(existingUsernames);
+
+        const usernameSuggestions: any[] = [];
         
-        return this.username = newUsername;
-    }
+        return usernameSuggestions;
+    } */
 
-    public getUserId(): number {
-        return this.userId;
-    }
-
-    public setUsername(username: string): void {
+    public setUsername(username: string): any {
         this.username = username;
     }
 
@@ -94,8 +96,76 @@ export default class User {
         return this.username;
     }
 
-    public getAchievements(): any {
+    public getUserId(): number {
+        return this.userId;
+    }
+
+    public setPassword(password: string): any {
+        this.password = password;
+    }
+
+    public getAchievements(): any[] {
         return this.achievements;
+    }
+
+    public addAchievement(achievement: any): void {
+        this.achievements.push(achievement);
+    }
+
+    public getAchievementCount(): number {
+        return this.achievements.length;
+    }
+
+    public setFirstName(firstName: string): void {
+        this.firstName = firstName;
+    }
+
+    public getFirstName(): string {
+        return this.firstName;
+    }
+
+    public setLastName(lastName: string): void {
+        this.lastName = lastName;
+    }
+
+    public getLastName(): string {
+        return this.lastName;
+    }
+
+    public setEmail(email: string): void {
+        this.email = email;
+    }
+
+    public getEmail(): string {
+        return this.email;
+    }
+
+    public setBudgetAmount(budgetAmount: number): any {
+        this.budgetAmount = budgetAmount;
+    }
+
+    public getBudgetAmount(): number {
+        return this.budgetAmount;
+    }
+
+    public setIncome(income: number): any {
+        this.income = income;
+    }
+
+    public getIncome(): number {
+        return this.income;
+    }
+
+    public setBalance(balance: number): any {
+        this.balance = balance;
+    }
+
+    public getBalance(): number {
+        return this.balance;
+    }
+
+    public updateAmountSpent(amount: number): any {
+        this.amountSpent += amount;
     }
 
 

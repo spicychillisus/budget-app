@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-import * as registerController from "@/controllers/registerController";
 import User from "@/entities/user";
+import { cookies } from 'next/headers'
+
 
 const prisma = new PrismaClient();
-const user = new User();
 const bcrypt = require('bcrypt');
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
@@ -17,6 +17,22 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     const password = req.body.password;
     const userId = req.body.userId;
 
-    
+    async function registerUser(): Promise<any> {
+
+        let newUser;
+        
+        newUser = new User();
+        const userUsername = newUser.setUsername(username);
+        
+        
+    }
+
+    if (req.method == "POST") {
+        registerUser()
+        .then((user) => {
+            res.status(200).json(user)
+            console.log(`registered!`)
+        })
+    }
 
 }

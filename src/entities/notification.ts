@@ -15,6 +15,10 @@ export default class Notification {
         this.timestamp = '';
     }
 
+    public sendNotification(): void {
+        
+    }
+
     public markAsRead(): void {
 
     }

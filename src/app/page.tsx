@@ -1,7 +1,3 @@
-import Image from "next/image";
-import User from "../entities/user";
- const user = new User();
- 
 
 export default function Home() {
   return (

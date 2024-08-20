@@ -46,3 +46,10 @@ model transactions {
   userId             Int    @unique @map("user_id")
   users              users  @relation(fields: [userId], references: [userId])
 }
+
+model user_achievements {
+  id        Int    @id @default(autoincrement())
+  userId    Int @unique @map("user_id")
+  username  String
+  achievements String[]
+}
