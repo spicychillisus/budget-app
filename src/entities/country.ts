@@ -16,4 +16,12 @@ export default class Country {
         this.countryFlag = '';
         this.countryShortForm = '';
     }
+
+    public setCountryCurrency(currency: string) {
+        this.currency = currency;
+    }
+
+    public setConversionRate(conversionRate: number) {
+        this.conversionRate = conversionRate
+    }
 }

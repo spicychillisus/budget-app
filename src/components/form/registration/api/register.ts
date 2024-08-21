@@ -12,7 +12,6 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     const firstName = req.body.firstName;
     const lastName = req.body.lastName
     const email = req.body.email;
-    const age = req.body.age;
     const birthday = req.body.birthday;
     const password = req.body.password;
     const userId = req.body.userId;
@@ -23,13 +22,14 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         
         newUser = new User();
         const userUsername = newUser.setUsername(username);
-        
+        const userFirstName = newUser.setFirstName(firstName);
         
     }
 
     if (req.method == "POST") {
         registerUser()
         .then((user) => {
+            console.log(user);
             res.status(200).json(user)
             console.log(`registered!`)
         })

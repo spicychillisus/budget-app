@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+
 
 export default class Transaction {
     
@@ -25,5 +24,9 @@ export default class Transaction {
         this.transactionDescription = '';
         this.createdAt = '';
         this.updatedAt = '';
+    }
+
+    public getTransactionName(): string {
+        return this.transactionName;
     }
 }

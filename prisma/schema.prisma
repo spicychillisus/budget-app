@@ -13,7 +13,6 @@ model users {
   lastName     String        @map("last_name")
   username     String        @unique
   email        String
-  age          Int
   birthday     String
   password     String
   userId       Int        @unique @map("user_id")

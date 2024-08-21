@@ -1,6 +1,4 @@
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
 
 export default class User {
 
@@ -16,6 +14,7 @@ export default class User {
     private lastLogin: string;
     private accountActive: boolean;
     private achievements: any[];
+    private birthday: string;
 
     // money matters
     private balance: number;
@@ -37,6 +36,7 @@ export default class User {
         this.lastLogin = '';
         this.accountActive = true;
         this.achievements = [];
+        this.birthday = '';
 
         // money matters
         this.balance = 0;
@@ -50,43 +50,6 @@ export default class User {
         console.log(`generated id for user ${this.username}: ${id}`)
         return this.userId = id;
     }
-
-    /* public generateRandomUsernames(): any[] {
-
-        // genereate username
-        // if db already has this username, generate another one
-        // return username
-        
-        function generateUsername(firstName: string, lastName: string): string {
-            
-            const capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
-            const numbers = 1234567890;
-
-            const newUsername: string = "";
-
-            return newUsername;
-        }
-
-        async function getAllUsernames() {
-            const allUsernames = await prisma.users.findMany({
-                select: {
-                    id: true,
-                    username: true
-                }
-            })
-
-            return allUsernames;
-        }
-
-        const newUsername = generateUsername(this.firstName, this.lastName);
-        const existingUsernames = getAllUsernames();
-        console.log(existingUsernames);
-
-        const usernameSuggestions: any[] = [];
-        
-        return usernameSuggestions;
-    } */
 
     public setUsername(username: string): any {
         this.username = username;
@@ -166,6 +129,44 @@ export default class User {
 
     public updateAmountSpent(amount: number): any {
         this.amountSpent += amount;
+    }
+
+    public getAge(): number {
+        let age = 0;
+        const birthday = this.birthday;
+        const today = new Date();
+        const birthDate = new Date(birthday);
+        age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+
+        return age;
+    }
+
+    public getBirthday(): string {
+        return this.birthday;
+    }
+
+    public setBirthday(birthday: string): any {
+        this.birthday = birthday;
+    }
+
+    public getCreatedAt(): string {
+        return this.createdAt;
+    }
+
+    public setCreatedAt(createdAt: string): any {
+        this.createdAt = createdAt;
+    }
+
+    public getUpdatedAt(): string {
+        return this.updatedAt;
+    }
+
+    public setUpdatedAt(updatedAt: string): any {
+        this.updatedAt = updatedAt;
     }
 
 
