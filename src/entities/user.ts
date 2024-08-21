@@ -21,6 +21,7 @@ export default class User {
     private income: number;
     private budgetAmount: number;
     private amountSpent: number;
+    private dailyExpenses: any[];
 
     constructor() {
 
@@ -43,6 +44,7 @@ export default class User {
         this.income = 0;
         this.budgetAmount = 0;
         this.amountSpent = 0;
+        this.dailyExpenses = [];
     }
 
     public generateId(): number {
@@ -141,6 +143,7 @@ export default class User {
         if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
             age--;
         }
+        console.log(`age of username ${this.username}: ${age}`)
 
         return age;
     }
@@ -167,6 +170,18 @@ export default class User {
 
     public setUpdatedAt(updatedAt: string): any {
         this.updatedAt = updatedAt;
+    }
+
+    public getAllDailyExpenses(): any[] {
+        return this.dailyExpenses;
+    }
+
+    public getLastLogin(): string {
+        return this.lastLogin;
+    }
+
+    public getCurrentAccountActiveState(): boolean {
+        return this.accountActive;
     }
 
 
