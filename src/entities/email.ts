@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+const { google } = require('googleapis');
 
 export default class Email {
     
@@ -22,5 +24,9 @@ export default class Email {
         this.message = '';
         this.attachment = '';
         this.attachmentName = '';
+    }
+
+    public sendEmail(): any {
+        console.log(`sending email to ${this.senderTo} from ${this.senderFrom}`);
     }
 }

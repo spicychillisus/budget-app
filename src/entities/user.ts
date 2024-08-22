@@ -1,13 +1,14 @@
-
+import Achievement from "./achievement";
+import Email from "./email";
 
 export default class User {
 
     // user details
-    private userId: number;
+    private userId: string;
     private firstName: string;
     private lastName: string;
     private username: string;
-    private email: string;
+    private email: Email;
     private password: string; // never release this
     private createdAt: string;
     private updatedAt: string;
@@ -26,11 +27,11 @@ export default class User {
     constructor() {
 
         // user details
-        this.userId = 0;
+        this.userId = '';
         this.firstName = '';
         this.lastName = '';
         this.username = '';
-        this.email = '';
+        this.email = new Email();
         this.password = '';
         this.createdAt = '';
         this.updatedAt = '';
@@ -47,10 +48,29 @@ export default class User {
         this.dailyExpenses = [];
     }
 
-    public generateId(): number {
-        const id = Math.floor(Math.random() * 1000000);
-        console.log(`generated id for user ${this.username}: ${id}`)
-        return this.userId = id;
+    public generateId(): string {
+        // format: 3 letters (can be upper and lower) + 3 numbers
+        // example: a349Bq, A24bQ5, etc.
+        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const numbers = '0123456789';
+
+        // randomise
+        const randomLowercase = lowercase[Math.floor(Math.random() * lowercase.length)];
+        const randomUppercase = uppercase[Math.floor(Math.random() * uppercase.length)];
+        const randomNumber1 = numbers[Math.floor(Math.random() * numbers.length)];
+        const randomNumber2 = numbers[Math.floor(Math.random() * numbers.length)];
+        const randomNumber3 = numbers[Math.floor(Math.random() * numbers.length)];
+
+        // generate
+        const id = randomLowercase + randomNumber1 + randomUppercase + randomNumber2 + randomNumber3;
+        console.log(`generated id for ${this.username}: ${id}`)
+        return id;
+    }
+
+    // forbidden method
+    private getPassowrd() {
+        return this.password;
     }
 
     public setUsername(username: string): any {
@@ -61,7 +81,7 @@ export default class User {
         return this.username;
     }
 
-    public getUserId(): number {
+    public getUserId(): string {
         return this.userId;
     }
 
@@ -73,7 +93,7 @@ export default class User {
         return this.achievements;
     }
 
-    public addAchievement(achievement: any): void {
+    public addAchievement(achievement: Achievement): void {
         this.achievements.push(achievement);
     }
 
@@ -97,11 +117,11 @@ export default class User {
         return this.lastName;
     }
 
-    public setEmail(email: string): void {
+    public setEmail(email: Email): void {
         this.email = email;
     }
 
-    public getEmail(): string {
+    public getEmail(): Email {
         return this.email;
     }
 

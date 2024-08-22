@@ -29,4 +29,24 @@ export default class Transaction {
     public getTransactionName(): string {
         return this.transactionName;
     }
+
+    public generateTransactionId(): any {
+
+        // format: 3 letters (can be upper and lower) + 3 numbers
+        // example: a349Bq, A24bQ5, etc.
+        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const numbers = '0123456789';
+
+        // randomise
+        const randomLowercase = lowercase[Math.floor(Math.random() * lowercase.length)];
+        const randomUppercase = uppercase[Math.floor(Math.random() * uppercase.length)];
+        const randomNumber1 = numbers[Math.floor(Math.random() * numbers.length)];
+        const randomNumber2 = numbers[Math.floor(Math.random() * numbers.length)];
+        const randomNumber3 = numbers[Math.floor(Math.random() * numbers.length)];
+
+        // generate
+        const id = randomLowercase + randomNumber1 + randomUppercase + randomNumber2 + randomNumber3;
+        console.log(`generated id for transaction ${this.transactionName}: ${id}`)
+    }
 }

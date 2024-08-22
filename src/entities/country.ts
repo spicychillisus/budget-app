@@ -17,6 +17,10 @@ export default class Country {
         this.countryShortForm = '';
     }
 
+    public setCountryName(countryName: string) {
+        this.countryName = countryName;
+    }
+
     public setCountryCurrency(currency: string) {
         this.currency = currency;
     }
