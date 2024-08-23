@@ -8,12 +8,12 @@ datasource db {
 }
 
 model users {
-  id           Int           @id @default(autoincrement())
+  id           Int            @id @default(autoincrement())
   firstName    String        @map("first_name")
   lastName     String        @map("last_name")
   username     String        @unique
-  email        String
-  birthday     String
+  email        String        @unique
+  birthday     DateTime
   password     String
   userId       String        @unique @map("user_id")
   accountActivationStatus Boolean @map("account_activation_status")

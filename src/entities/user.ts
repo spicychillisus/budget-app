@@ -15,7 +15,7 @@ export default class User {
     private lastLogin: string;
     private accountActive: boolean;
     private achievements: any[];
-    private birthday: string;
+    private birthday: Date;
 
     // money matters
     private balance: number;
@@ -38,7 +38,7 @@ export default class User {
         this.lastLogin = '';
         this.accountActive = true;
         this.achievements = [];
-        this.birthday = '';
+        this.birthday = new Date();
 
         // money matters
         this.balance = 0;
@@ -121,8 +121,8 @@ export default class User {
         this.email = email;
     }
 
-    public getEmail(): Email {
-        return this.email;
+    public getEmail(): string {
+        return this.email.toString();
     }
 
     public setBudgetAmount(budgetAmount: number): any {
@@ -169,10 +169,10 @@ export default class User {
     }
 
     public getBirthday(): string {
-        return this.birthday;
+        return this.birthday.toISOString();
     }
 
-    public setBirthday(birthday: string): any {
+    public setBirthday(birthday: Date): any {
         this.birthday = birthday;
     }
 
