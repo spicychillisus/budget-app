@@ -12,7 +12,7 @@ model users {
   firstName    String        @map("first_name")
   lastName     String        @map("last_name")
   username     String        @unique
-  email        String        @unique
+  email        String        
   birthday     DateTime
   password     String
   userId       String        @unique @map("user_id")
@@ -51,4 +51,23 @@ model user_achievements {
   userId    Int @unique @map("user_id")
   username  String
   achievements String[]
+}
+
+model account_activity {
+  id        Int    @id @default(autoincrement())
+  userId    String @unique @map("user_id")
+  username  String
+  activityId    String @unique @map("activity_id")
+  activityName  String  @map("activity_name")
+  activityType  String  @map("activity_type")
+  activityDetails  String @map("activity_details")
+  activityDate  String @map("activity_date")
+  accountMessage String @map("account_message")
+}
+
+model user_goals {
+  id        Int    @id @default(autoincrement())
+  userId    Int @unique @map("user_id")
+  username  String
+  goals     String[]
 }

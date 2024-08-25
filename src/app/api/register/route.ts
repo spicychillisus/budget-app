@@ -1,13 +1,13 @@
 const { PrismaClient } = require('@prisma/client');
 import { NextApiRequest, NextApiResponse } from "next";
 import User from "@/entities/user";
-import { registerUser } from "@/app/controllers/userController";
+import { registerUser } from "@/app/api/controllers/userController";
 
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 
 
-export default async function handle(req: NextApiRequest, res: NextApiResponse) {
+export default async function register(req: NextApiRequest, res: NextApiResponse) {
     const username = req.body.username;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName

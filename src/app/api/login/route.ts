@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import User from "@/entities/user";
 import { cookies } from 'next/headers'
-import { loginUser } from "@/app/controllers/userController";
+import { loginUser } from "@/app/api/controllers/userController";
 const jwt = require("jsonwebtoken");
 
 export async function login(req: NextApiRequest, res: NextApiResponse) {
@@ -10,11 +10,11 @@ export async function login(req: NextApiRequest, res: NextApiResponse) {
     const password = req.body.password;
 
     if (req.method == "POST") {
-        loginUser(req, res, username, password)
+        loginUser(res, username, password)
         .then((user) => {
             console.log(user);
             res.status(200).json(user)
-            console.log(`logged in!`)
+            console.log(`logged in user ${username}!`)
         })
         .catch((error) => {
             console.log(error)
