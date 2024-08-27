@@ -7,12 +7,14 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs"
+} from "@/components/ui/tabs"   
 
 const Register = () => {
     return (
         <div>
-            <h1 className="">Register</h1>
+            <Tabs defaultValue="account">
+
+            </Tabs>
         </div>
     );
 }

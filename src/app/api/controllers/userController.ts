@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 
-function generateToken(user: any) {
+export function generateToken(user: any) {
     try {
         const token = jwt.sign({
             userId: user.getUserId(),
@@ -102,7 +102,8 @@ export async function registerUser(
             password: userPassword,
             userId: userId,
             accountActivationStatus: true,
-            accountStatus: "active"
+            accountStatus: "active",
+            role: 1
 
         }
     })
@@ -197,6 +198,10 @@ export async function loginUser(
     
 }
 
+export async function redirectUser(res: NextApiResponse, username: string): Promise<any> {
+    
+}
+
 export async function deleteAccount(id: number, username: string, res: NextApiResponse): Promise<any> {
     const user = await prisma.users.delete({
         where: {
@@ -209,3 +214,6 @@ export async function deleteAccount(id: number, username: string, res: NextApiRe
 
 }
 
+export async function changePassword(username: string, res: NextApiResponse): Promise<any> {
+
+}
