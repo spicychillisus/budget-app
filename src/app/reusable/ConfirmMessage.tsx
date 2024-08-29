@@ -1,0 +1,8 @@
+
+type ConfirmMessageProps = {
+    
+}
+
+const ConfirmMessage = () => {
+
+}

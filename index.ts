@@ -1,23 +1,22 @@
-// this file is a test file for the prisma client
+/* please do not touch this file as it is still in creation */
 
-/* const { PrismaClient } = require('@prisma/client');
+/* import { Client } from "pg";
+import * as dotenv from "dotenv";
 
-const prisma = new PrismaClient()
+const dbname = process.env.DB_DATABASE;
+const user = process.env.DB_USER;
+const dbhost = process.env.DB_HOST;
+const dbpassword = process.env.DB_PASSWORD;
 
-async function main() {
-    const post = await prisma.post.update({
-      where: { id: 1 },
-      data: { published: true },
-    })
-    console.log(post)
-}
+const client = new Client({
+  host: dbhost,
+  user: user,
+  password: dbpassword,
+  port: 5432
+});
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  }) */
+client.connect();
+
+const res = client.query(`SELECT ${dbname} FROM pg_catalog`)
+
+ */

@@ -1,19 +1,6 @@
 "use client"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-/* import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu" */
-import Navbar from "./landing-page-components/Navbar"
-import About from "./landing-page-components/About"
-import GetStarted from "./landing-page-components/GetStarted"
-
+import Navbar from "./reusable/Navbar"
 
 
 export default function Home() {
@@ -27,22 +14,26 @@ export default function Home() {
                   <p className="text-md">
                     Save your money with ease. We'll handle the rest.
                   </p>
-                  <div className="mt-2">
-                    <Tabs defaultValue="about" className="w-[400px]">
+              </div>
+              <div className="mt-2 flex mx-auto">
+                    <Tabs defaultValue="easy-saving" className="w-[400px] mx-auto">
                       <TabsList>
-                        <TabsTrigger value="about">About</TabsTrigger>
-                        <TabsTrigger value="sign-up">Get Started</TabsTrigger>
+                        <TabsTrigger value="easy-saving">Easy Saving</TabsTrigger>
+                        <TabsTrigger value="track-your-expenses">Track Your Expenses</TabsTrigger>
+                        <TabsTrigger value="save-efficiently">Save Efficiently</TabsTrigger>
                       </TabsList>
-                      <TabsContent value="about">
-                        <About />
+                      <TabsContent value="easy-saving">
+                        
                       </TabsContent>
-                      <TabsContent value="sign-up">
-                        <GetStarted />
+                      <TabsContent value="track-your-expenses">
+                        
+                      </TabsContent>
+                      <TabsContent value="save-efficiently">
+                        
                       </TabsContent>
                     </Tabs>
 
                   </div>
-              </div>
           </div>
       </div>
     </main>

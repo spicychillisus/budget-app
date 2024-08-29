@@ -32,6 +32,11 @@ const Navbar = () => {
                         Login
                     </Link>
                 </Button>
+                <Button>
+                    <Link href={"/register"}>
+                        Register
+                    </Link>
+                </Button>
               </NavigationMenuList>
               
             </NavigationMenu>

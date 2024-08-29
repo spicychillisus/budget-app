@@ -65,8 +65,14 @@ export async function registerUser(
     if (await checkExistingUsername(username) == true) {
         res.status(400).json({ message: "Username already exists" });
         return;
-    } 
-    newUser.setUsername(username);
+    } else if (username == "") {
+        res.status(400).json({
+            message: "Please create a username"
+        })
+    } else {
+        newUser.setUsername(username);
+    }
+    
     newUser.setFirstName(firstName);
     newUser.setLastName(lastName);
     if (await checkExistingEmail(email.toString(), newUser.getUserId()) == true) {

@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 import { loginUser, generateToken } from "@/app/api/controllers/userController";
 const jwt = require("jsonwebtoken");
 
-export async function login(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
     const username = req.body.username;
     const password = req.body.password;
 
