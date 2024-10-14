@@ -1,6 +1,6 @@
 "use client"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Navbar from "./reusable/Navbar"
+import Navbar from "../components/app/Navbar"
 import EasySaving from "./landing-page-components/EasySaving"
 import SaveEfficiently from "./landing-page-components/SaveEfficiently"
 import TrackYourExpenses from "./landing-page-components/TrackYourExpenses"
@@ -31,10 +31,10 @@ export default function Home() {
                             <EasySaving />
                           </TabsContent>
                           <TabsContent value="track-your-expenses">
-                            
+                            <TrackYourExpenses></TrackYourExpenses>
                           </TabsContent>
                           <TabsContent value="save-efficiently">
-                            
+                            <SaveEfficiently />
                           </TabsContent>
                         </Tabs>
                   </div>

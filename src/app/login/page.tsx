@@ -10,10 +10,12 @@ import {
   } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import Navbar from "../reusable/Navbar"
 
 const Login = () => {
     return (
         <div className="bg-gradient-to-r from-green-200 via-green-300 to-blue-500 w-screen min-h-screen">
+            <Navbar />
             <div className="flex justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <Card className="w-[500px]">
                     <CardHeader>

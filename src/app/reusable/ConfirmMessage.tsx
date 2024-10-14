@@ -1,8 +1,0 @@
-
-type ConfirmMessageProps = {
-    
-}
-
-const ConfirmMessage = () => {
-
-}

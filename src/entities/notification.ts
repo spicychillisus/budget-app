@@ -26,6 +26,8 @@ export default class Notification {
     public closeNotification(): void {
         
     }
+
+    
     
     
 }
